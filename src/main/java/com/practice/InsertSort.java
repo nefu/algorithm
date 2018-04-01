@@ -11,6 +11,10 @@ public class InsertSort {
      * 这是一个直接插入排序 思想是默认被插入的队列是有序的
      * 然后取当前被插入值 当前位置开始 从后往前进行值的比较
      *
+     *
+     *
+     * 通俗的将就是将要比较的数值与他之前的比较（往前比 所以内部循环是j--的）如比较 1 3 2
+     * 如果发现 自己前方的大于自己就交换 1  2  3 然后j-- 再拿  2与1比较 发现已经大于1了就会退出这个数的比较循环
      * */
     public void sort(int[] arrs){
         int temp;
@@ -43,8 +47,36 @@ public class InsertSort {
 
     }
 
+    public void upgradeSort(int[] arrs){
+        for(int i=1;i<arrs.length;i++){
+             for(int j=i;j>0&&arrs[j]<arrs[j-1];j--){
+                 int temp=arrs[j];
+                 arrs[j]=arrs[j-1];
+                 arrs[j-1]=temp;
+             }
+
+
+
+
+
+
+
+        }
+
+
+
+    }
+
+
+
+
     public static void main(String[] args) {
         int [] arr={23,453,3,12,566};
-       new InsertSort().sort(arr);
+       new InsertSort().upgradeSort(arr);
+        for(int i:arr){
+
+            System.out.println(i);
+
+        }
     }
 }
